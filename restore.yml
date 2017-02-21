@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  backup:
+    env_file:
+      - config.env
+    build: ./duplicity
+    command: /bin/sh /restore.sh
+    hostname: duplicity
+    restart: no
+    volumes:
+      - ./test_restored:/data
+      - cache:/cache
+      - ./ssh_keys:/ssh_keys
+      - ./gpg_keys:/gpg_keys
+      - ./known_hosts:/root/.ssh/known_hosts
+
+volumes:
+  cache:

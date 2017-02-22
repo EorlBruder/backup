@@ -7,7 +7,7 @@ services:
     build: ./duplicity
     command: /bin/sh /restore.sh
     hostname: duplicity
-    restart: no
+    restart: "no"
     volumes:
       - ./test_restored:/data
       - cache:/cache

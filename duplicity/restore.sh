@@ -8,7 +8,6 @@ CONNECTION_OPTIONS="--use-agent \
           --encrypt-key $FINGERPRINT \
           --log-file /dev/stdout \
           --archive-dir /cache/archive \
-          --tempdir /cache/tmp \
           --ssh-options=-oIdentityFile=/ssh_keys/backup \
           --gpg-options --passphrase=$PASSPHRASE \
           --gpg-options --no-tty \
@@ -19,7 +18,7 @@ CONNECTION_OPTIONS="--use-agent \
 gpg --passphrase $PASSPHRASE --no-tty --batch --import /gpg_keys/*.priv.asc
 echo "$FINGERPRINT:6:" | gpg --import-ownertrust
 
-mkdir -p /cache/archive 
+mkdir -p /cache/archive
 
 # Restore the Backup
 duplicity restore \

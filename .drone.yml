@@ -5,8 +5,8 @@ pipeline:
     registry: registry.eorlbruder.de
     tags:
       - latest
-    dockerfile: ./Dockerfile
-    context: .
+    dockerfile: ./duplicity/Dockerfile
+    context: ./duplicity
     secrets: [docker_username, docker_password]
   notify:
     image: drillster/drone-email
